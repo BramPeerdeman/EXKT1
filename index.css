@@ -1,18 +1,120 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
-body, html {
-    font-family: "Open Sans", sans-serif;
+:root 
+{
+    /* ======= Colors ======= */
+    /* Color mode HSL(hue, saturation, light) */
+    --first-color: hsl(353, 100%, 65%);
+    --title-color: hsl(244, 24%, 26%);
+    --text-color: hsl(244, 16%, 43%);
+    --body-color: hsl(258, 60%, 98%);
+    --container-color: #fff;
+
+    /* ======= Font and Typography  ======= */
+    /* .5rem = 8pc | 1rem = 16px */
+    --body-font: "Rubik", sans-serif;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+
+    /* ======= Font weight  ======= */
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* ======= Box shadow  ======= */
+    --shadow: 0px 5px 20px 0px rgb(69 67 96 / 10%);
+
+    /* ======= Border radius  ======= */
+    --border-radius: 20px;
 }
 
-#avatar {
+body 
+{
+    font-family: var(--body-font);
+    background-color: var(--body-color);
+}
+
+/********** Text ***********/
+.title 
+{
+    color: var(--title-color);
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-semibold);
+}
+
+.font 
+{
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-medium);
+    color: var(--text-color);
+    justify-content: center;
+}
+
+/********** Avatar ***********/
+#avatar 
+{
     width: 200px;
-    height: 400px;
+    height: 300px;
     position: relative;
 }
-.part {
+
+.part 
+{
     position: absolute;
 }
-#controls img {
+
+#controls
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#controls img 
+{
     cursor: pointer;
     margin: 5px;
+    grid-template-columns: 1fr 1fr;
 }
+
+.avatarbox
+{
+    display: grid;
+    justify-content: center;
+}
+
+
+/********** Button ***********/
+button 
+{
+    display: inline-block;
+    cursor: pointer;
+    background-color: var(--title-color);
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: var(--normal-font-size);
+}
+
+button:hover 
+{
+    transform: scale(1.10);
+    transition: .2s;
+}
+
+
+/********** Button ***********/
+.face .color .glasses .hair .shirt
+{
+    display: grid;
+}
+
+
+

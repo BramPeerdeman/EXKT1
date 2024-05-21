@@ -1,10 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => 
+{
     const avatar = document.getElementById('avatar');
     const controls = document.getElementById('controls');
     const saveButton = document.getElementById('save');
 
     // Define z-index for each part type
-    const zIndexMap = {
+    const zIndexMap = 
+    {
         color: 1,
         face: 2,
         glasses: 3,
@@ -14,14 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Load saved avatar if exists
     const savedAvatar = localStorage.getItem('avatar');
-    if (savedAvatar) {
+    if (savedAvatar) 
+    {
         avatar.innerHTML = savedAvatar;
     }
 
     // Function to add part to avatar
-    const addPart = (type, src) => {
+    const addPart = (type, src) => 
+    {
         let img = avatar.querySelector(`img[data-type="${type}"]`);
-        if (!img) {
+        if (!img) 
+        {
             img = document.createElement('img');
             img.dataset.type = type;
             img.classList.add('part');
@@ -32,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Handle image click in controls
-    controls.addEventListener('click', (e) => {
+    controls.addEventListener('click', (e) => 
+    {
         if (e.target.tagName === 'IMG') {
             const type = e.target.dataset.type;
             const src = e.target.src;
@@ -41,12 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Save avatar state
-    saveButton.addEventListener('click', () => {
+    saveButton.addEventListener('click', () => 
+    {
         localStorage.setItem('avatar', avatar.innerHTML);
         alert('Avatar saved!');
     });
 
     // Download the avatar
+    
 });
 
 
