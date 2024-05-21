@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () =>
     const avatar = document.getElementById('avatar');
     const controls = document.getElementById('controls');
     const saveButton = document.getElementById('save');
-    const downloadButton = document.getElementById('download');
+    // const downloadButton = document.getElementById('download');
 
     // Define z-index for each part type
     const zIndexMap = 
@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () =>
             img.dataset.type = type;
             img.classList.add('part');
             img.style.zIndex = zIndexMap[type];
+            
             avatar.appendChild(img);
         }
         img.src = src;
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () =>
         if (e.target.tagName === 'IMG') {
             const type = e.target.dataset.type;
             const src = e.target.src;
+            
             addPart(type, src);
         }
     });
@@ -51,13 +53,46 @@ document.addEventListener("DOMContentLoaded", () =>
     saveButton.addEventListener('click', () => 
     {
         localStorage.setItem('avatar', avatar.innerHTML);
+        
         alert('Avatar saved!');
     });
 
-    // Download the avatar
-    downloadButton.addEventListener('click', () =>
+    // Download your own made avatar (extra)
+    $('#download').click(function() 
     {
+        function download(filename, blob)
+        {
+            if (window.navigator.msSaveOrOpenBlob)
+            {
+                window.navigator.msSaveBlob(blob, filename);
+            }
+            else
+            {
+                const elem = window.document.createElement('a');
+                
+                elem.href = window.URL.createObjectURL(blob);
+                elem.download = filename;
+
+                document.body.appendChild(elem);
+
+                elem.click();
+
+                document.body.removeChild(elem);
+            }
+        }
         
+        let img = document.querySelector('#avatar');
+        let data = (new XMLSerializer()).serializeToString(img);
+
+        let canvas = document.createElement('canvas');
+
+        html2canvas(document.querySelector("#avatar")).then(canvas => 
+            {
+            canvas.toBlob(function(blob) 
+            {
+                download('MyAvatar.png', blob);
+            });
+        });
     });
 });
 
