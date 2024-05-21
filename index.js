@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () =>
     const avatar = document.getElementById('avatar');
     const controls = document.getElementById('controls');
     const saveButton = document.getElementById('save');
-    // const downloadButton = document.getElementById('download');
 
     // Define z-index for each part type
     const zIndexMap = 
@@ -57,7 +56,8 @@ document.addEventListener("DOMContentLoaded", () =>
         alert('Avatar saved!');
     });
 
-    // Download your own made avatar (extra)
+    //====== Extra ======//
+    // Download your own made avatar
     $('#download').click(function() 
     {
         function download(filename, blob)
