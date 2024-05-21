@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () =>
     const avatar = document.getElementById('avatar');
     const controls = document.getElementById('controls');
     const saveButton = document.getElementById('save');
+    const downloadButton = document.getElementById('download');
 
     // Define z-index for each part type
     const zIndexMap = 
@@ -54,7 +55,10 @@ document.addEventListener("DOMContentLoaded", () =>
     });
 
     // Download the avatar
-    
+    downloadButton.addEventListener('click', () =>
+    {
+        
+    });
 });
 
 
