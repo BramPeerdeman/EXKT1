@@ -9,7 +9,14 @@ document.addEventListener("DOMContentLoaded", () =>
     const saveButton = document.getElementById('save');
 
     // Define z-index for each part type to layer them correctly
-    const zIndexMap = { color: 1, face: 2, glasses: 3, hair: 5, shirt: 4 };
+    const zIndexMap = 
+    { 
+        color: 1, 
+        face: 2, 
+        glasses: 3, 
+        hair: 5, 
+        shirt: 4 
+    };
 
     // Load saved avatar from local storage if it exists
     if (localStorage.getItem('avatar')) 
@@ -53,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () =>
     {
         // Save the inner HTML of the avatar element
         localStorage.setItem('avatar', avatar.innerHTML); 
-        
+
         // Notify the user that the avatar has been saved
         alert('Avatar saved!'); 
     });
