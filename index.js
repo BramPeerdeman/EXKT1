@@ -1,3 +1,4 @@
+//Fires when HTML document is completely parsed
 document.addEventListener("DOMContentLoaded", () => 
 {
     const avatar = document.getElementById('avatar');
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () =>
     const addPart = (type, src) => 
     {
         let img = avatar.querySelector(`img[data-type="${type}"]`);
+        
         if (!img) 
         {
             img = document.createElement('img');
@@ -40,7 +42,8 @@ document.addEventListener("DOMContentLoaded", () =>
     // Handle image click in controls
     controls.addEventListener('click', (e) => 
     {
-        if (e.target.tagName === 'IMG') {
+        if (e.target.tagName === 'IMG') 
+        {
             const type = e.target.dataset.type;
             const src = e.target.src;
             
@@ -56,44 +59,44 @@ document.addEventListener("DOMContentLoaded", () =>
         alert('Avatar saved!');
     });
 
-    //====== Extra ======//
-    // Download your own made avatar
-    $('#download').click(function() 
-    {
-        function download(filename, blob)
-        {
-            if (window.navigator.msSaveOrOpenBlob)
-            {
-                window.navigator.msSaveBlob(blob, filename);
-            }
-            else
-            {
-                const elem = window.document.createElement('a');
+    // //====== Extra ======//
+    // // Download your own made avatar
+    // $('#download').click(function() 
+    // {
+    //     function download(filename, blob)
+    //     {
+    //         if (window.navigator.msSaveOrOpenBlob)
+    //         {
+    //             window.navigator.msSaveBlob(blob, filename);
+    //         }
+    //         else
+    //         {
+    //             const elem = window.document.createElement('a');
                 
-                elem.href = window.URL.createObjectURL(blob);
-                elem.download = filename;
+    //             elem.href = window.URL.createObjectURL(blob);
+    //             elem.download = filename;
 
-                document.body.appendChild(elem);
+    //             document.body.appendChild(elem);
 
-                elem.click();
+    //             elem.click();
 
-                document.body.removeChild(elem);
-            }
-        }
+    //             document.body.removeChild(elem);
+    //         }
+    //     }
         
-        let img = document.querySelector('#avatar');
-        let data = (new XMLSerializer()).serializeToString(img);
+    //     let img = document.querySelector('#avatar');
+    //     let data = (new XMLSerializer()).serializeToString(img);
 
-        let canvas = document.createElement('canvas');
+    //     let canvas = document.createElement('canvas');
 
-        html2canvas(document.querySelector("#avatar")).then(canvas => 
-            {
-            canvas.toBlob(function(blob) 
-            {
-                download('MyAvatar.png', blob);
-            });
-        });
-    });
+    //     html2canvas(document.querySelector("#avatar")).then(canvas => 
+    //         {
+    //         canvas.toBlob(function(blob) 
+    //         {
+    //             download('MyAvatar.png', blob);
+    //         });
+    //     });
+    // });
 });
 
 
