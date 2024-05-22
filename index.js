@@ -1,3 +1,4 @@
+// Fires when HTML content is loaded
 document.addEventListener("DOMContentLoaded", () => 
 {
     // Get the avatar container element
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () =>
             img.dataset.type = type;
             img.classList.add('part');
             img.style.zIndex = zIndexMap[type];
+            
             avatar.appendChild(img);
         }
         // Set the source of the image
@@ -49,8 +51,11 @@ document.addEventListener("DOMContentLoaded", () =>
     // Save the current state of the avatar to local storage
     saveButton.addEventListener('click', () => 
     {
-        localStorage.setItem('avatar', avatar.innerHTML); // Save the inner HTML of the avatar element
-        alert('Avatar saved!'); // Notify the user that the avatar has been saved
+        // Save the inner HTML of the avatar element
+        localStorage.setItem('avatar', avatar.innerHTML); 
+        
+        // Notify the user that the avatar has been saved
+        alert('Avatar saved!'); 
     });
 });
 
